@@ -1,5 +1,6 @@
 var Game = {
   _display: null,
+  _currentScreen: null,
   init: function() {
     //init goes here
     this._display = new ROT.Display({width: 80, height: 24});
