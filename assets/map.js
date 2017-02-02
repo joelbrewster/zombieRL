@@ -2,7 +2,7 @@ Game.Map = function(tiles) {
   this._tiles = tiles;
   //cache the width and height based on the length of the dimensions of the tiles array
   this._width = tiles.length;
-  this._height = tile[0].length;
+  this._height = tiles[0].length;
 };
 
 //standard getters
