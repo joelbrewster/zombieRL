@@ -15,4 +15,3 @@ Game.Glyph.prototype.getBackground = function() {
 Game.Glyph.prototype.getForeground = function() {
   return this._foreground;
 }
-
