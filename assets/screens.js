@@ -23,4 +23,28 @@ Game.Screen.startScreen = {
   }
 }
 
-
+// Define our playing screen
+Game.Screen.playScreen = {
+  enter: function() {
+    console.log("Entered the play screen.");
+  },
+  exit : function() {
+    console.log("Exited the play screen.");
+  },
+  // Render the prompt to the screen
+  render: function(display) {
+  display.drawText(3, 5, "%c{red}%b{white}Game started");
+  display.drawText(4, 6, "Press [Enter] to win, [Esc] to lose!");
+},
+  handleInput: function(inputType, inputData) {
+    if (inputType === 'keydown') {
+      // If enter is pressed, go to the win screen
+      // If escape is pressed, go to lose screen
+      if (inputData.keyCode === ROT.VK_RETURN) {
+        Game.switchScreen(Game.Screen.winScreen);
+      } else if (inputData.keyCode === ROT.VK_ESCAPE) {
+        Game.switchScreen(Game.Screen.loseScreen);
+      }
+    }
+  }
+}
