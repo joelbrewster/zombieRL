@@ -29,6 +29,8 @@ var Game = {
     }
     //clear the display
     this.getDisplay().clear();
+    //Update the current screen, tell it that we entered it
+    this._currentScreen = screen;
     if (!this._currentScreen !== null) {
       this._currentScreen.enter();
       this._currentScreen.render(this._display);
@@ -40,8 +42,11 @@ window.onload = function() {
 	if (!ROT.isSupported()) {
 		alert("The rot.js library isn't supported by your browser.");
 	} else {
+    // Initialize the game
     Game.init();
     // add container to the page
     document.body.appendChild(Game.getDisplay().getContainer());
+    // Load the start screen
+    Game.switchScreen(Game.Screen.startScreen);
 	}
 }
