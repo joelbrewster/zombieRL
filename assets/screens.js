@@ -15,6 +15,22 @@ Game.Screen.startScreen = {
             if (inputData.keyCode === ROT.VK_RETURN) {
                 Game.switchScreen(Game.Screen.playScreen);
             }
+            //Movement
+            if (inputData.keyCode === ROT.VK_LEFT) {
+            this.move(-1,0)
+            }
+
+            else if (inputData.keyCode === ROT.VK_RIGHT) {
+            this.move(1, 0);
+            }
+
+            else if (inputData.keyCode === ROT.VT_UP) {
+            this.move(0, -1);
+            }
+
+            else if (inputData.keyCode === ROT.VT_DOWN) {
+            this.move(0, 1);
+            }
         }
     },
     move: function(dX, dY) {
