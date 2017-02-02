@@ -11,7 +11,7 @@ var Game = {
         // When an event is received, send it to the screen if there is one
         if (game._currentScreen !== null) {
           //send the event type and data to the screen
-          game.)_currentScreen.handleUnput(event, e);
+          game._currentScreen.handleInput(event, e);
         }
       });
     }
