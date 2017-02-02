@@ -20,7 +20,15 @@ Game.Screen.startScreen = {
             this.move(-1,0)
             }
 
+            if (inputData.keyCode === ROT.VK_H) {
+            this.move(-1,0)
+            }
+
             else if (inputData.keyCode === ROT.VK_RIGHT) {
+            this.move(1, 0);
+            }
+
+            else if (inputData.keyCode === ROT.VK_L) {
             this.move(1, 0);
             }
 
@@ -28,7 +36,15 @@ Game.Screen.startScreen = {
             this.move(0, -1);
             }
 
+            else if (inputData.keyCode === ROT.VT_K) {
+            this.move(0, -1);
+            }
+
             else if (inputData.keyCode === ROT.VT_DOWN) {
+            this.move(0, 1);
+            }
+
+            else if (inputData.keyCode === ROT.VT_J) {
             this.move(0, 1);
             }
         }
