@@ -1,9 +1,11 @@
 var Game = {
   _display: null,
   _currentScreen: null,
+  _screenWidth: 80,
+  _screenHeight: 24,
   init: function() {
     //init goes here
-    this._display = new ROT.Display({width: 80, height: 24});
+    this._display = new ROT.Display({width: this._screenWidth, height: this._screenHeight});
     //Create a helper function for binding to an event - send it to the screen
     var game = this;
     var bindEventToScreen = function(event) {
@@ -22,6 +24,12 @@ var Game = {
   getDisplay: function() {
     return this._display;
   },
+  getScreenWidth: function() {
+    return this._screenWidth;
+  },
+  getScreenHeight: function() {
+    return this._screenHeight;
+  },
   switchScreen: function(screen) {
     //screen before, notify that exited
     if (this._currentScreen !== null) {
@@ -39,14 +47,14 @@ var Game = {
 }
 window.onload = function() {
   // Check if rot.js can work on this browser
-	if (!ROT.isSupported()) {
-		alert("The rot.js library isn't supported by your browser.");
-	} else {
+  if (!ROT.isSupported()) {
+    alert("The rot.js library isn't supported by your browser.");
+  } else {
     // Initialize the game
     Game.init();
     // add container to the page
     document.body.appendChild(Game.getDisplay().getContainer());
     // Load the start screen
     Game.switchScreen(Game.Screen.startScreen);
-	}
+  }
 }
