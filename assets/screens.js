@@ -25,6 +25,7 @@ Game.Screen.startScreen = {
 
 // Define our playing screen
 Game.Screen.playScreen = {
+  map : null,
   enter: function() {
     console.log("Entered the play screen.");
   },
