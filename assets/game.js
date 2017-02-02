@@ -31,7 +31,7 @@ var Game = {
     this.getDisplay().clear();
     //Update the current screen, tell it that we entered it
     this._currentScreen = screen;
-    if (!this._currentScreen !== null) {
+    if (this._currentScreen) {
       this._currentScreen.enter();
       this._currentScreen.render(this._display);
     }
