@@ -16,6 +16,18 @@ Game.Screen.startScreen = {
                 Game.switchScreen(Game.Screen.playScreen);
             }
         }
+    },
+    move: function(dX, dY) {
+      // Positive dX means movement right
+      // negative means movement left
+      // 0 means none
+      this._centerX = Mathmax(0,
+        Math.min(this.__map.getWidth() -1, this._centerX + dX));
+      // Positive dY means movement down
+      // negative means movement up
+      // 0 means none
+      this._centerY = Math.max(0,
+        Math.min(this._map.getHeight() - 1, this._centerY + dY));
     }
 }
 
