@@ -33,8 +33,8 @@ Game.Screen.playScreen = {
         }
         // Setup the map generator
         var generator = new ROT.Map.Cellular(80, 24);
-        generator.randomize(0.5);
-        var totalIterations = 3;
+        generator.randomize(0.6);
+        var totalIterations = 1;
         // Iteratively smoothen the map
         for (var i = 0; i < totalIterations - 1; i++) {
             generator.create();
