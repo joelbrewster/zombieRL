@@ -21,9 +21,15 @@ Game.Screen.startScreen = {
 
 // Define our playing screen
 Game.Screen.playScreen = {
+  _map: null,
+  _centerX: 0,
+  _centerY: 0,
     enter: function() {
         var map = [];
-        for (var x = 0; x < 80; x++) {
+        //Create a map based upon size params
+        var mapWidth = 1000;
+        var mapHeight = 1000;
+        for (var x = 0; x < mapWidth; x++) {
             // Create the nested array for the y values
             map.push([]);
             // Add all the tiles
@@ -32,7 +38,7 @@ Game.Screen.playScreen = {
             }
         }
         // Setup the map generator
-        var generator = new ROT.Map.Cellular(80, 24);
+        var generator = new ROT.Map.Cellular(mapWidth, mapHeight);
         generator.randomize(0.6);
         var totalIterations = 1;
         // Iteratively smoothen the map
