@@ -13,10 +13,10 @@ tryMove: function(x, y, map) {
     this._x = x;
     this._y = y;
     return true;
-    // Check if the tile is diggable, and
-    // if so try to dig it
-  } else if (tile.isDiggable()) {
-    map.dig(x, y);
+    // Check if the tile is destroyable, and
+    // if so try to destroy it
+  } else if (tile.isDestroyable()) {
+    map.destroy(x, y);
     return true;
     }
     return false;
