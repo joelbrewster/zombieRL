@@ -22,3 +22,10 @@ Game.Map.prototype.getTile = function(x, y) {
     return this._tiles[x][y] || Game.Tile.nullTile;
   }
 };
+
+Game.Map.prototype.destroy = function(x, y) {
+  //If the tile is destroyable, change it to a floor
+  if (this.getTile(x, y).isDeestroyable()) {
+    this._tiles[x][y] = Game.Tile.floorTile;
+  }
+}
