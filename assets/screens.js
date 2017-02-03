@@ -102,6 +102,19 @@ Game.Screen.playScreen = {
     },
     exit: function() { console.log("Exited play screen."); },
     render: function(display) {
+      var screenWidth = Game.getScreenWidth();
+      var screenHeight = Game.getScreenHeight();
+      //Make sure the x-axis doesn't go to the left of the left bound
+      var topLeftX = Math.max(0, this._centerX - (screenWidth / 2));
+      //Make sure there is enough space to fit the game screen
+      topLeftX = Math.min(topLeftX, this._map.getWidth() - screenWidth);
+
+
+      //Make sure the y-axis doesn't go to the left of the left bound
+      var topLeftY = Math.max(0, this._centerY - (screenHeight / 2));
+      //Make sure there is enough space to fit the game screen
+      topLeftY = Math.min(topLeftY, this._map.getHeight() - screenHeight);
+
         // Iterate through all map cells
         for (var x = 0; x < this._map.getWidth(); x++) {
             for (var y = 0; y < this._map.getHeight(); y++) {
