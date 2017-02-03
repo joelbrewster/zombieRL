@@ -22,8 +22,7 @@ Game.Screen.startScreen = {
 // Define our playing screen
 Game.Screen.playScreen = {
     _map: null,
-    _centerX: 0,
-    _centerY: 0,
+    _player: null,
     enter: function() {
         var map = [];
         //Create a map based upon size params
@@ -55,6 +54,11 @@ Game.Screen.playScreen = {
         });
         // Create our map from the tiles
         this._map = new Game.Map(map);
+        //Create the player and set the position
+        this._player = new Game.Entity(Game.PlayerTemplate);
+        var position = this._map.getRandomFloorPosition();
+        this._player.setX(position.x);
+        this._player.setY(position.y);
     },
     exit: function() { console.log("Exited play screen."); },
     render: function(display) {
