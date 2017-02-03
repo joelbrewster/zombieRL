@@ -14,12 +14,18 @@ var Game = {
         if (game._currentScreen !== null) {
           //send the event type and data to the screen
           game._currentScreen.handleInput(event, e);
+          //clear the screen
+          game._display.clear();
+          //render the screen
+          game._currentScreen.render(game._display);
         }
       });
     }
+    // Bind keyboard input events
     bindEventToScreen('keydown');
-    bindEventToScreen('keyup');
-    bindEventToScreen('keypress');
+    // Unused for now
+    // bindEventToScreen('keyup');
+    // bindEventToScreen('keypress');
   },
   getDisplay: function() {
     return this._display;
