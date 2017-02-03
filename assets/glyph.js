@@ -1,8 +1,8 @@
 Game.Glyph = function(chr, foreground, background) {
   //set properties to default if they weren't passed
-  this._char = chr || ' ';
-  this._foreground = foreground || 'white';
-  this._background = background || 'black';
+  this._char = properties['character'] || ' ';
+  this._foreground = properties['foreground'] || 'white';
+  this._background = properties['background'] || 'black';
 };
 
 //create standard getters for glyphs
