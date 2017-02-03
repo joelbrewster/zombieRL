@@ -115,17 +115,20 @@ Game.Screen.playScreen = {
       //Make sure there is enough space to fit the game screen
       topLeftY = Math.min(topLeftY, this._map.getHeight() - screenHeight);
 
-        // Iterate through all map cells
-        for (var x = 0; x < this._map.getWidth(); x++) {
-            for (var y = 0; y < this._map.getHeight(); y++) {
-                // Fetch the glyph for the tile and render it to the screen
-                var glyph = this._map.getTile(x, y).getGlyph();
-                display.draw(x, y,
-                    glyph.getChar(),
-                    glyph.getForeground(),
-                    glyph.getBackground());
-            }
+      // Iterate through all map cells
+      for (var x = topLeftX; x < topLeftX + screenWidth; x++) {
+        for (var y = topLeftY; y < topLeftY + screenHeight; y++) {
+        // Fetch the glyph for the tile and render it to the screen (offset)
+        var glyph = this._map.getTile(x, y).getGlyph();
         }
+      }
+      //Render the cursor
+      display.draw(
+        this._centerX - topLeftX,
+        this._centerY - topLeftY,
+        '@',
+        'white',
+        'black');
     },
     handleInput: function(inputType, inputData) {
         if (inputType === 'keydown') {
