@@ -4,7 +4,7 @@ Game.Tile = function(properties) {
     Game.Glyph.call(this, properties);
     // Set up the properties. We use false by default.
     this._isWalkable = properties['isWalkable'] || false;
-    this._isDiggable = properties['isDiggable'] || false;
+    this._isDestroyable = properties['isDestroyable'] || false;
 };
 
 // Make tiles inherit all the functionality from glyphs
@@ -14,8 +14,8 @@ Game.Tile.extend(Game.Glyph);
 Game.Tile.prototype.isWalkable = function() {
     return this._isWalkable;
 }
-Game.Tile.prototype.isDiggable = function() {
-    return this._isDiggable;
+Game.Tile.prototype.isDestroyable = function() {
+    return this._isDestroyable;
 }
 
 Game.Tile.nullTile = new Game.Tile({})
@@ -26,5 +26,5 @@ Game.Tile.floorTile = new Game.Tile({
 Game.Tile.wallTile = new Game.Tile({
     character: '#',
     foreground: 'grey',
-    isDiggable: true
+    isDestroyable: true
 });
