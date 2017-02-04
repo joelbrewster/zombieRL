@@ -117,16 +117,10 @@ Game.Screen.playScreen = {
         }
     },
     move: function(dX, dY) {
-        // Positive dX means movement right
-        // negative means movement left
-        // 0 means none
-        this._centerX = Math.max(0,
-            Math.min(this._map.getWidth() - 1, this._centerX + dX));
-        // Positive dY means movement down
-        // negative means movement up
-        // 0 means none
-        this._centerY = Math.max(0,
-            Math.min(this._map.getHeight() - 1, this._centerY + dY));
+        var newX = this._player.getX() + dX;
+        var newY = this._player.getY() + dY;
+        // Try to move to the new cell
+        this._player.tryMove(newX, newY, this._map);
     }
 }
 
