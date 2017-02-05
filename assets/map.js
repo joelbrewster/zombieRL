@@ -3,6 +3,11 @@ Game.Map = function(tiles) {
   //cache the width and height based on the length of the dimensions of the tiles array
   this._width = tiles.length;
   this._height = tiles[0].length;
+
+  //Create a list that will hold entities
+  this._entities = [];
+  this._scheduler = new ROT.Scheduler.Simple();
+  this._engine = new ROT.Engine(this._scheduler);
 };
 
 //standard getters
@@ -28,7 +33,7 @@ Game.Map.prototype.destroy = function(x, y) {
   if (this.getTile(x, y).isDestroyable()) {
     this._tiles[x][y] = Game.Tile.floorTile;
   }
-}
+},
 
 Game.Map.prototype.getRandomFloorPosition = function() {
   // Randomly generate a tile which is a floor
