@@ -3,8 +3,8 @@ Game.Mixins = {};
 
 // Define our Moveable mixin
 Game.Mixins.Moveable = {
-name: 'Moveable',
-tryMove: function(x, y, map) {
+  name: 'Moveable',
+  tryMove: function(x, y, map) {
   var tile = map.getTile(x, y);
   // Check if we can walk on the tile
   // and if so simply walk onto it

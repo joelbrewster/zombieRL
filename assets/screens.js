@@ -83,7 +83,7 @@ Game.Screen.playScreen = {
                     y - topLeftY,
                     tile.getChar(),
                     tile.getForeground(),
-                    tile.getBackground());
+                    tile.getBackground())
             }
         }
         // Render the player
